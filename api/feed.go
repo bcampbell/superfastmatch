@@ -73,7 +73,7 @@ func monitor(reg *registry.Registry, feed *Feed) {
 				glog.Fatalln("Updating feeds:", err)
 			}
 		case err := <-feed.stream.Errors:
-			glog.Errorln(err)
+			glog.Errorf("feed '%s' (lastEventId: %s): %s", feed.Name, feed.LastEventId, err)
 		}
 	}
 }
